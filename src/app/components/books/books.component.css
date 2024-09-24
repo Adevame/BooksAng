@@ -1,0 +1,12 @@
+.book-card {
+    border: 5px solid black;
+    width: max-content;
+    text-align: center;
+}
+
+section {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-around;
+}

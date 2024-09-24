@@ -1,0 +1,12 @@
+.navbar {
+    background: linear-gradient(128deg, rgba(43,21,0,1) 0%, rgba(93,39,0,1) 20%, rgba(198,66,2,1) 100%);
+    font-weight: bolder;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+.navbar-nav .nav-link.active {
+    color: rgb(186, 186, 186);
+}

@@ -1,0 +1,10 @@
+<h1>Books</h1>
+<section>
+    <div *ngFor="let book of books; trackBy: trackByBookId" class="book-card" [id]="'book-' + book.id">
+        <h2>{{ book.title }}</h2>
+        <p>{{ book.author }}</p>
+        <p>{{ book.coverText }}</p>
+        <p>{{ book.comment }}</p>
+        <button class="btn btn-danger" (onItem)="deleteBook(book.id)">Delete</button>
+    </div>
+</section>

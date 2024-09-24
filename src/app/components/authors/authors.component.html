@@ -1,0 +1,7 @@
+<h1>Authors</h1>
+<section>
+    <div *ngFor="let author of authors; trackBy: trackByAuthorId" class="authorCard" [id]="'author-' + author.id">
+        <h2>{{ author.firstName }}</h2>
+        <h2>{{ author.lastName }}</h2>
+    </div>
+</section>
