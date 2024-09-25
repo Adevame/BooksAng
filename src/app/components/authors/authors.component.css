@@ -1,0 +1,17 @@
+.author-card {
+    border: 5px solid black;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+}
+
+section {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-around;
+}
+
+.btn {
+    margin-top: 100px;
+}

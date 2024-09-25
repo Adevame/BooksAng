@@ -2,9 +2,11 @@
 <section>
     <div *ngFor="let book of books; trackBy: trackByBookId" class="book-card" [id]="'book-' + book.id">
         <h2>{{ book.title }}</h2>
-        <p>{{ book.author }}</p>
+        <p>{{ book.author.firstName }}<br>{{ book.author.lastName }}</p>
+        <button class="btn btn-primary" (click)="detailAuthor(book)">Voir l'auteur</button>
         <p>{{ book.coverText }}</p>
         <p>{{ book.comment }}</p>
-        <button class="btn btn-danger" (onItem)="deleteBook(book.id)">Delete</button>
+        <button class="btn btn-primary" (click)="detailBook(book.id)">Détails</button>
+        <button class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button>
     </div>
 </section>

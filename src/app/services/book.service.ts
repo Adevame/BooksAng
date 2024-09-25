@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import Book from '../models/book.model';
+import Book, { BookCreate, BookUpdate } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,18 @@ export class BookService {
 
 
   deleteBook(id: number): Observable<Book> {
-    alert("Book deleted")
     return this.http.delete<Book>(`${this.urlApi}/${id}`)
+  }
+
+  detailBook(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.urlApi}/details/${id}`)
+  }
+  
+  createBook(book: BookCreate): Observable<Book> {
+    return this.http.post<Book>(this.urlApi, book)
+  }
+
+  updateBook(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.urlApi}/${book.id}`, book)
   }
 }

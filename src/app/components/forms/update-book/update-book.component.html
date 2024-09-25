@@ -1,0 +1,71 @@
+<form [formGroup]="updateBookForm" (ngSubmit)="onSubmit()">
+    <div class="form-floating">
+      <input
+        class="form-control mb-3 mt-3"
+        placeholder="Titre"
+        id="titre"
+        formControlName="title"
+      />
+      <label for="titre">Titre</label>
+  
+      <div *ngIf="submitted && updateBookForm.get('title')?.invalid" class="text-danger">
+        Titre non valide
+      </div>
+      <div *ngIf="updateBookForm.get('title')?.valid" class="text-success">
+        Titre valide
+      </div>
+    </div>
+  
+    <div class="form-floating">
+      <textarea
+        class="form-control mb-3"
+        placeholder="Quatrième de Couverture"
+        id="floatingTextarea2"
+        formControlName="coverText"
+      ></textarea>
+      <label for="floatingTextarea2">CoverText</label>
+  
+      <div *ngIf="submitted && updateBookForm.get('coverText')?.invalid" class="text-danger">
+        Quatrième de Couverture non valide
+      </div>
+      <div *ngIf="updateBookForm.get('coverText')?.valid" class="text-success">
+        Quatrième de Couverture valide
+      </div>
+    </div>
+  
+    <div class="form-floating">
+      <textarea
+        class="form-control mb-3"
+        placeholder="Commentaire"
+        id="floatingTextarea3"
+        formControlName="comment"
+      ></textarea>
+      <label for="floatingTextarea3">Commentaire</label>
+  
+      <div *ngIf="submitted && updateBookForm.get('comment')?.invalid" class="text-danger">
+        Commentaire non valide
+      </div>
+      <div *ngIf="updateBookForm.get('comment')?.valid" class="text-success">
+        Commentaire valide
+      </div>
+    </div>
+
+    <div class="form-floating">
+        <input
+        class="form-control mb-3 mt-3"
+        id="authorId"
+        placeholder="Id Auteur"
+        formControlName="authorId"
+      />
+      <label for="authorId">ID Auteur</label>
+    </div>
+
+    <div *ngIf="submitted && updateBookForm.get('authorId')?.invalid" class="text-danger">
+        ID Auteur non valide
+    </div>
+    <div *ngIf="updateBookForm.get('authorId')?.valid" class="text-success">
+        ID Auteur valide
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

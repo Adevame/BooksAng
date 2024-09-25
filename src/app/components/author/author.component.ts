@@ -47,4 +47,8 @@ export class AuthorComponent {
       const id = this.route.snapshot.paramMap.get('id') 
       this.setSubscribe(id)
     }
+
+    retourAuthor(): void {
+      this.router.navigate(['authors']);
+    }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import Book from '../../models/book.model';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import Author from '../../models/author.model';
 
 @Component({
   selector: 'app-books',
@@ -12,8 +14,9 @@ import { CommonModule } from '@angular/common';
 })
 export class BooksComponent implements OnInit {
   books!: Book[];
+  author!: Author;
 
-  constructor(private bookService: BookService){ }
+  constructor(private bookService: BookService, private router: Router){ }
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((data) => {
@@ -27,9 +30,23 @@ export class BooksComponent implements OnInit {
   }
 
   deleteBook(id: number): void {
-    this.bookService.deleteBook(id).subscribe(() => {
-      this.books = this.books.filter(book => book.id!== id);
+    this.bookService.deleteBook(id).subscribe({
+      next: () => {
+        this.books = this.books.filter(book => book.id !== id);
+        this.router.navigate([this.router.url]);
+      },
+      error: error => {
+        console.error('failed to delete', error);
+      }
     });
+  }
+
+  detailBook(id: number): void {
+    this.router.navigate(['books', id]);
+  }
+
+  detailAuthor(book: Book): void {
+    this.router.navigate(['authors', book.author.id]); 
   }
 
 }

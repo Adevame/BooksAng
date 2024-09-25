@@ -1,7 +1,10 @@
 <h1>Authors</h1>
 <section>
-    <div *ngFor="let author of authors; trackBy: trackByAuthorId" class="authorCard" [id]="'author-' + author.id">
+    <div *ngFor="let author of authors; trackBy: trackByAuthorId" class="author-card" [id]="'author-' + author.id">
         <h2>{{ author.firstName }}</h2>
         <h2>{{ author.lastName }}</h2>
+        <button class="btn btn-danger" (click)="deleteAuthor(author.id)">Delete</button>
+        <button class="btn btn-primary" (click)="detailAuthor(author)">Détails</button>
     </div>
 </section>
+<button class="btn btn-primary" (click)="retourBook()">Retour</button>

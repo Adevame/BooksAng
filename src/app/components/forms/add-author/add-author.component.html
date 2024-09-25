@@ -1,0 +1,37 @@
+<form [formGroup]="createAuthorForm" (ngSubmit)="onSubmit()">
+    <div class="form-floating">
+      <input
+        class="form-control mb-3 mt-3"
+        placeholder="Nom"
+        id="firstName"
+        formControlName="firstName"
+      />
+      <label for="firstName">Nom</label>
+  
+      <div *ngIf="submitted && createAuthorForm.get('firstName')?.invalid" class="text-danger">
+        Nom non valide
+      </div>
+      <div *ngIf="createAuthorForm.get('firstName')?.valid" class="text-success">
+        Nom valide
+      </div>
+    </div>
+  
+    <div class="form-floating">
+        <input
+          class="form-control mb-3 mt-3"
+          placeholder="Prénom"
+          id="lastName"
+          formControlName="lastName"
+        />
+        <label for="lastName">Prénom</label>
+    
+        <div *ngIf="submitted && createAuthorForm.get('lastName')?.invalid" class="text-danger">
+          Prénom non valide
+        </div>
+        <div *ngIf="createAuthorForm.get('lastName')?.valid" class="text-success">
+          Prénom valide
+        </div>
+      </div>
+  
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

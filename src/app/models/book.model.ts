@@ -7,3 +7,7 @@ export default interface Book {
     comment: string
     author: Author
 }
+
+export type BookCreate = Omit<Book, 'id'>
+export type BookUpdate = BookCreate
+

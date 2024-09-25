@@ -3,3 +3,6 @@ export default interface Author {
     firstName: string
     lastName: string
 }
+
+export type AuthorCreate = Omit<Author, 'id'>
+export type AuthorUpdate = AuthorCreate

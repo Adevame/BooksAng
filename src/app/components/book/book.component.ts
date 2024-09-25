@@ -3,6 +3,7 @@ import Book from '../../models/book.model';
 import { BookService } from '../../services/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-book',
   standalone: true,
@@ -47,6 +48,15 @@ export class BookComponent implements OnInit {
       const id = this.route.snapshot.paramMap.get('id') 
       this.setSubscribe(id)
     }
+
+    retourBook(): void {
+      this.router.navigate(['books'])
+    }
+    
+    detailAuthor(): void {
+      this.router.navigate(['authors', this.book.author.id])
+    }
+    
 }
 
 

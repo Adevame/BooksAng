@@ -1,0 +1,9 @@
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    width: max-content;
+    height: max-content;
+    text-align: center;
+}
