@@ -10,3 +10,7 @@ a {
 .navbar-nav .nav-link.active {
     color: rgb(186, 186, 186);
 }
+
+#navbarNav {
+    width: 100vw;
+}

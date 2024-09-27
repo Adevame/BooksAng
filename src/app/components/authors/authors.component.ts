@@ -48,4 +48,7 @@ export class AuthorsComponent implements OnInit {
 
   }
 
+  updateAuthor(id: number): void {
+    this.router.navigate(['updateAuthor', id]);
+  }
 }

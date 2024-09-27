@@ -2,6 +2,7 @@
     border: 5px solid black;
     width: max-content;
     text-align: center;
+    padding: 15px;
 }
 
 section {
@@ -9,4 +10,8 @@ section {
     display: flex;
     flex-wrap: nowrap; 
     justify-content: space-around;
+}
+
+h1 {
+    margin: 50px 47vw;
 }
