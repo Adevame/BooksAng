@@ -9,7 +9,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withInterceptors([authInterceptor])),
     ...(appConfig.providers || []),
-    // { provide: HTTP_INTERCEPTORS, useValue: authInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useValue: authInterceptor, multi: true }
   ]
 })
   .catch((err) => console.error(err));

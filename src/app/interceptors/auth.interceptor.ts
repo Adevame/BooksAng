@@ -13,13 +13,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   if (token) {
     req = req.clone({
       setHeaders: {
-        'Authorization': `Bearer${token}`, 
+        'Authorization': `Bearer ${token}`, 
       },
     });
   } else {
     console.log('No token found, please log in');
   }
-
-  return next(req); // Proceed with the request
+  
+  return next(req);
 };
-

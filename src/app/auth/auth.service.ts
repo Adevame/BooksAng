@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,18 @@ export class AuthService {
     }
     console.log('No authUser found');
     return null;
+  }
+
+  /**Rajouter vérif admin pour les routes*/
+
+  isAdmin(token: string): boolean {
+    try {
+      const decodedToken: any = jwtDecode(token);
+      console.log('Decoded Token:', decodedToken);
+      return decodedToken.roles && decodedToken.roles.includes('ROLE_ADMIN');
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return false;
+    }
   }
 }
