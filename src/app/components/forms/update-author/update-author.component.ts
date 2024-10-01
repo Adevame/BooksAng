@@ -56,7 +56,7 @@ export class UpdateAuthorComponent {
         lastName: this.updateAuthorForm.get('lastName')?.value || this.author.lastName,
       };
       const updatedAuthor = { ...authorData, id: this.author.id };
-      this.authorService.createAuthor(updatedAuthor).subscribe({
+      this.authorService.updateAuthor(updatedAuthor).subscribe({
         next: () => {
           this.message = true;
           this.updateAuthorForm.reset();

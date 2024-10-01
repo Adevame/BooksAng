@@ -1,6 +1,7 @@
 .book-card {
+    flex: 0 0 25%;
     border: 5px solid black;
-    width: max-content;
+    width: 15%;
     text-align: center;
     padding: 15px;
 }
@@ -8,10 +9,22 @@
 section {
     margin-top: 50px;
     display: flex;
-    flex-wrap: nowrap; 
+    flex-wrap: wrap; 
     justify-content: space-around;
+    gap: 50px;
 }
 
 h1 {
     margin: 50px 47vw;
 }
+
+.pagination {
+    position: fixed;
+    margin: 15px 0 0 39vw;
+    bottom: 0;
+}
+
+.btn-primary, .btn-danger{
+    margin-right: 5px;
+}
+

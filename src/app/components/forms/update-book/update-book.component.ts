@@ -69,7 +69,7 @@ export class UpdateBookComponent implements OnInit {
             author: author || this.book.author,
           };
           const updatedBook = { ...bookData, id: this.book.id };
-          this.bookService.createBook(updatedBook).subscribe({
+          this.bookService.updateBook(updatedBook).subscribe({
             next: () => {
               this.message = true;
               this.updateBookForm.reset();
@@ -77,11 +77,13 @@ export class UpdateBookComponent implements OnInit {
               this.router.navigate(['books']);
             },
             error: (err) => {
+              console.error(err);
               alert('Echec de mise à jour du livre');
             }
           });
         },
         error: (err) => {
+          console.error(err);
           alert('Echec de récupèration des informations de l\'auteur');
         }
       });

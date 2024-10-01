@@ -15,6 +15,10 @@ export class AuthorService {
     return this.http.get<Author[]>(`${this.urlApi}`)
   }
 
+  getAuthorsByPage(page: number) {
+    return this.http.get(`${this.urlApi}` + `?page=${page}`)
+  }
+
   getAuthor(id: number): Observable<Author> {
     return this.http.get<Author>(`${this.urlApi}/${id}`)
   }

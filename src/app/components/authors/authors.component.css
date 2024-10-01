@@ -1,4 +1,5 @@
 .author-card {
+    flex: 0 0 33%;
     border: 5px solid black;
     width: 250px;
     height: 250px;
@@ -8,8 +9,9 @@
 section {
     margin-top: 50px;
     display: flex;
-    flex-wrap: nowrap; 
-    justify-content: space-around;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    gap: 50px;
 }
 
 .btn {
@@ -17,5 +19,21 @@ section {
 }
 
 .btnR {
-    margin: 15px 48.25%;
+    position: fixed;
+    bottom: 7vh;
+    margin: 15px 0 0 46.66%;
+}
+
+h1 {
+    margin: 50px 0 0 46.66%;
+}
+
+.pagination {
+    position: fixed;
+    margin: 15px 0 0 42.5%;
+    bottom: 0;
+}
+
+.btn-primary, .btn-danger{
+    margin-right: 5px;
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import Book, { BookCreate, BookUpdate } from '../models/book.model';
+import Book, { BookCreate } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,10 @@ export class BookService {
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.urlApi}`)
+  }
+
+  getBooksByPage(page: number) {
+    return this.http.get(`${this.urlApi}` + `?page=${page}`)
   }
 
   getBook(id: number): Observable<Book> {

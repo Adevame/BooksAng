@@ -1,13 +1,16 @@
 <h1>Books</h1>
 <section>
-    <div *ngFor="let book of books; trackBy: trackByBookId" class="book-card" [id]="'book-' + book.id">
+    <div *ngFor="let book of books| paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: total }" class="book-card">
         <h2>{{ book.title }}</h2>
-        <p>{{ book.author.firstName }}<br>{{ book.author.lastName }}</p>
+        <p>{{ book.author?.firstName }}<br>{{ book.author?.lastName }}</p>
         <button class="btn btn-primary" (click)="detailAuthor(book)">Voir l'auteur</button>
         <p>{{ book.coverText }}</p>
         <p>{{ book.comment }}</p>
         <button class="btn btn-primary" (click)="detailBook(book.id)">Détails</button>
         <button class="btn btn-danger" *ngIf="isHidden()" (click)="deleteBook(book.id)">Delete</button>
         <button class="btn btn-warning" *ngIf="isHidden()" (click)="updateBook(book.id)">Modifier</button>
-    </div>
+    </div>    
 </section>
+<div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
