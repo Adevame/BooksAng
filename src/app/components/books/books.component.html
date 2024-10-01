@@ -7,7 +7,7 @@
         <p>{{ book.coverText }}</p>
         <p>{{ book.comment }}</p>
         <button class="btn btn-primary" (click)="detailBook(book.id)">Détails</button>
-        <button class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button>
-        <button class="btn btn-warning" (click)="updateBook(book.id)">Modifier</button>
+        <button class="btn btn-danger" *ngIf="isHidden()" (click)="deleteBook(book.id)">Delete</button>
+        <button class="btn btn-warning" *ngIf="isHidden()" (click)="updateBook(book.id)">Modifier</button>
     </div>
 </section>

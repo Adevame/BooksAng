@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthorService } from '../../services/author.service.service';
 import Author from '../../models/author.model';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service'; 
 
 @Component({
   selector: 'app-authors',
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AuthorsComponent implements OnInit {
   authors!: Author[];
+  private authService = inject(AuthService);
 
   constructor(private authorService: AuthorService, private router: Router){ }
 
@@ -50,5 +52,14 @@ export class AuthorsComponent implements OnInit {
 
   updateAuthor(id: number): void {
     this.router.navigate(['updateAuthor', id]);
+  }
+
+  isHidden (): boolean {
+    const token = this.authService.getToken();
+    if(this.authService.isAdmin(JSON.stringify(token))){
+      return true;
+    } else {
+      return false;
+    }
   }
 }

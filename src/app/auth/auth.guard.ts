@@ -7,21 +7,17 @@ export const authGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
   const token = authService.getToken();
-  let isAdmin = false;
 
   if (authService.isLoggedIn()) {
-    if (authService.isLoggedIn() && authService.isAdmin(token) === true)
+    if (authService.isAdmin(token))
     {
-      console.log('good');
-      isAdmin = true;
+      return true;
     } else {
-      console.log('not good');
+      alert('Not Admin');
+      router.navigate(['']);
+      return false;
     }
-    console.log(isAdmin);
-    
-    return true;
   }
-
   router.navigate(['/login']);
   return false;
 };

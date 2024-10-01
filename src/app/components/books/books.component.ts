@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import Book from '../../models/book.model';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import Author from '../../models/author.model';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-books',
@@ -15,6 +16,7 @@ import Author from '../../models/author.model';
 export class BooksComponent implements OnInit {
   books!: Book[];
   author!: Author;
+  private authService = inject(AuthService);
 
   constructor(private bookService: BookService, private router: Router){ }
 
@@ -33,7 +35,7 @@ export class BooksComponent implements OnInit {
     this.bookService.deleteBook(id).subscribe({
       next: () => {
         this.books = this.books.filter(book => book.id !== id);
-        this.router.navigate([this.router.url]);
+        window.location.reload();
       },
       error: error => {
         console.error('failed to delete', error);
@@ -51,6 +53,15 @@ export class BooksComponent implements OnInit {
 
   updateBook(id: number): void {
     this.router.navigate(['updateBook', id]);
+  }
+
+  isHidden (): boolean {
+    const token = this.authService.getToken();
+    if(this.authService.isAdmin(JSON.stringify(token))){
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

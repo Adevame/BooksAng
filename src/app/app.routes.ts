@@ -23,12 +23,12 @@ export const routes: Routes = [
 
     {path:"authors", component:AuthorsComponent},
     {path:"authors/:id", component:AuthorComponent},
-    {path:"addAuthor", component:AddAuthorComponent},
+    {path:"addAuthor", component:AddAuthorComponent, canActivate: [authGuard]},
     {path:"updateAuthor/:id", component:UpdateAuthorComponent, canActivate: [authGuard]},
     
     {path:"books", component:BooksComponent},
     {path:"books/:id", component:BookComponent},
-    {path:"addBook", component:AddBookComponent},
+    {path:"addBook", component:AddBookComponent, canActivate: [authGuard]},
     {path:"updateBook/:id", component:UpdateBookComponent, canActivate: [authGuard]},
 
     {path:"login", component:LoginComponent},

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import Author from '../../models/author.model';
 import { AuthorService } from '../../services/author.service.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -51,4 +51,7 @@ export class AuthorComponent {
     retourAuthor(): void {
       this.router.navigate(['authors']);
     }
+
+    
+    
 }

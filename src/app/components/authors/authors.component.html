@@ -3,9 +3,9 @@
     <div *ngFor="let author of authors; trackBy: trackByAuthorId" class="author-card" [id]="'author-' + author.id">
         <h2>{{ author.firstName }}</h2>
         <h2>{{ author.lastName }}</h2>
-        <button class="btn btn-danger" (click)="deleteAuthor(author.id)">Delete</button>
+        <button class="btn btn-danger" *ngIf="isHidden()" (click)="deleteAuthor(author.id)">Delete</button>
         <button class="btn btn-primary" (click)="detailAuthor(author)">Détails</button>
-        <button class="btn btn-warning" (click)="updateAuthor(author.id)">Modifier</button>
+        <button class="btn btn-warning" *ngIf="isHidden()" (click)="updateAuthor(author.id)">Modifier</button>
     </div>
 </section>
 <button class="btn btnR btn-primary" (click)="retourBook()">Retour</button>
